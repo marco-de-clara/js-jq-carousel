@@ -79,3 +79,33 @@ $('.prev').click(function() {
         prevBullet.addClass('active');
     }
 });
+
+// catch click on bullet to change image
+$('.bullet').click(function() {
+    // new bullet shorthand
+    var newBullet = $(this);
+
+    // get new bullet index
+    var bulletIndex = newBullet.index();
+
+    // get current image
+    var currentImage = $('img.active');
+
+    // get current bullet
+    var currentBullet = $('a.active');
+
+    // get new image linked to new bullet
+    var newImage = currentImage.parent().children().eq(bulletIndex);
+
+    //remove active from current bullet
+    currentBullet.removeClass('active');
+
+    // add active class to new bullet
+    newBullet.addClass('active');
+
+    // remove active from current image
+    currentImage.removeClass('active');
+
+    // add active class to new image
+    newImage.addClass('active');
+});
