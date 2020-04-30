@@ -59,11 +59,11 @@ i.fas {
 }
 
 .fa-chevron-left {
-    left: 25px;
+    left: -50px;
 }
 
 .fa-chevron-right {
-    right: 25px;
+    right: -50px;
 }
 
 .bulletsWrapper {
