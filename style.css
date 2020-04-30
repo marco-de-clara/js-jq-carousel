@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+body {
+    background: #72A0C1;
+}
+
+.galleryContainer {
+    margin: 40px auto;
+    width: 900px;
+}
+
+.carouselContainer {
+    position: relative;
+}
+
+.carouselContent {
+    text-align: center;
+}
+
+.carouselContent img {
+    border-radius: 20px;
+    height: 500px;
+    width: calc(100% - 30px);
+    object-fit: cover;
+}
+
+i {
+    transition: 200ms linear;
+}
+
+.arrowWrapper i:hover {
+    background: rgb(0, 0, 0);
+    top: calc(50% - 5px);
+}
+
+i.fas {
+    font-size: 1.3rem;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    line-height: 50px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+}
+
+.fa-chevron-left {
+    left: 25px;
+}
+
+.fa-chevron-right {
+    right: 25px;
+}
+
+.bulletsWrapper {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.bulletsWrapper a {
+    width: 25px;
+    height: 25px;
+    background: #ddd;
+    display: inline-block;
+    margin: 10px;
+    transform: rotate(45deg);
+}
+
+.bulletsWrapper a:hover {
+    background: #555;
+}
