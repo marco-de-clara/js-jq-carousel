@@ -124,6 +124,9 @@ $('.bullet').click(function() {
     autoplayIndex = newImage.index();
 });
 
+// support variable to play/pause autoplay
+var playMode;
+
 // first autoplay() call
 autoplay();
 
@@ -157,5 +160,17 @@ function autoplay() {
     bullet.eq(autoplayIndex - 1).addClass('active');
 
     // set 2s delay to autoplay function
-    setTimeout(autoplay, 2000);
+    playMode = setTimeout(autoplay, 2000);
 }
+
+// catch click on Play button
+$('button.play').click(function() {
+    // play autoplay after 2s
+    setTimeout(autoplay, 2000);
+});
+
+// catch click on Pause button
+$('button.pause').click(function() {
+    // stop autoplay
+    clearTimeout(playMode);
+});

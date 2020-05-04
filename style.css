@@ -87,3 +87,27 @@ i.fas {
 .bulletsWrapper a.active {
     background: #333;
 }
+
+.btnWrapper {
+    text-align: center;
+    margin: 15px;
+}
+
+button {
+    border-radius: 28px;
+	border: 2px solid #bbb;
+    padding: 16px 31px;
+	text-decoration: none;
+    cursor: pointer;
+    background-color: #eee;
+    color:#333;
+}
+
+button:hover {
+    background: #ccc;
+}
+
+button:active {
+	position: relative;
+	top: 2px;
+}
