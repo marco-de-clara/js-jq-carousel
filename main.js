@@ -1,4 +1,5 @@
-var imagesTotal = 5;
+// initializing autoplay index
+var autoplayIndex = 0;
 
 // catch click on next
 $('.next').click(function() {
@@ -11,7 +12,7 @@ $('.next').click(function() {
     // remove active from current image
     currentImage.removeClass('active');
 
-    //remove active from current bullet
+    // remove active from current bullet
     currentBullet.removeClass('active');
 
     // get next image
@@ -25,9 +26,11 @@ $('.next').click(function() {
         // set active class to next image
         nextImage.addClass('active');
 
-        //set active class to next bullet
+        // set active class to next bullet
         nextBullet.addClass('active');
 
+        // set next image index as current autoplay index
+        autoplayIndex = nextImage.index();
     } else {
         // restart from the beginning
         // img
@@ -37,6 +40,9 @@ $('.next').click(function() {
         // bullet
         nextBullet = $('a:first-child');
         nextBullet.addClass('active');
+
+        // set next image index as current autoplay index
+        autoplayIndex = nextImage.index();
     }
 });
 
@@ -68,6 +74,8 @@ $('.prev').click(function() {
         //set active class to previous bullet
         prevBullet.addClass('active');
 
+        // set previous image index as current autoplay index
+        autoplayIndex = prevImage.index();
     } else {
         // restart from the beginning (last)
         // img
@@ -77,6 +85,9 @@ $('.prev').click(function() {
         // bullet
         prevBullet = $('a:last-child');
         prevBullet.addClass('active');
+
+        // set previous image index as current autoplay index
+        autoplayIndex = prevImage.index();
     }
 });
 
@@ -108,4 +119,43 @@ $('.bullet').click(function() {
 
     // add active class to new image
     newImage.addClass('active');
+
+    // set new image index as current autoplay index
+    autoplayIndex = newImage.index();
 });
+
+// first autoplay() call
+autoplay();
+
+// autoplay function
+function autoplay() {
+    // slide class selector shorthand
+    var slide = $('.slide');
+
+    // bullet class selector shorthand
+    var bullet = $('.bullet');
+
+    // remove active class from every slide and bullet
+    for (var i = 0; i < slide.length; i++) {
+        slide.eq(i).removeClass('active');
+        bullet.eq(i).removeClass('active');
+    }
+
+    // go to next image in slideshow
+    autoplayIndex++;
+
+    // if index exceedes slides number
+    if (autoplayIndex > slide.length) {
+        // restart
+        autoplayIndex = 1;
+    }
+
+    // set active class to current slide
+    slide.eq(autoplayIndex - 1).addClass('active');
+
+    // set active class to current bullet
+    bullet.eq(autoplayIndex - 1).addClass('active');
+
+    // set 2s delay to autoplay function
+    setTimeout(autoplay, 2000);
+}
