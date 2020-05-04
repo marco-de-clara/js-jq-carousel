@@ -127,8 +127,18 @@ $('.bullet').click(function() {
 // support variable to play/pause autoplay
 var playMode;
 
+// support variable to play/pause loading bar
+var playBar;
+
 // first autoplay() call
 autoplay();
+
+// first loadBar() call
+loadBar();
+
+function loadBar() {
+    $('.loadingBar').addClass('active');
+}
 
 // autoplay function
 function autoplay() {
@@ -161,16 +171,27 @@ function autoplay() {
 
     // set 2s delay to autoplay function
     playMode = setTimeout(autoplay, 2000);
+
+    // remove active class from loading bar
+    $('.loadingBar').removeClass('active');
+
+    // set 0.1s delay to loadBar function
+    // transition time is set to 1.9s to start at the same time as autoplay()
+    playBar = setTimeout(loadBar, 100);
 }
 
 // catch click on Play button
 $('button.play').click(function() {
-    // play autoplay after 2s
+    // start autoplay after 2s
     setTimeout(autoplay, 2000);
+    // start loadBar after 0.1s
+    setTimeout(loadBar, 100);
 });
 
 // catch click on Pause button
 $('button.pause').click(function() {
     // stop autoplay
     clearTimeout(playMode);
+    // stop loading bar
+    clearTimeout(playBar);
 });
