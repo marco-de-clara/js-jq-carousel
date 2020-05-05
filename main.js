@@ -201,5 +201,5 @@ $('button.pause').click(function() {
     // disable pause button
     $(this).prop("disabled", true);
     // enable play button
-    $('button.pause').prop("disabled", false);
+    $('button.play').prop("disabled", false);
 });
