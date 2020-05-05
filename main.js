@@ -186,6 +186,10 @@ $('button.play').click(function() {
     setTimeout(autoplay, 2000);
     // start loadBar after 0.1s
     setTimeout(loadBar, 100);
+    // disable play button
+    $(this).prop("disabled", true);
+    // enable pause button
+    $('button.pause').prop("disabled", false);
 });
 
 // catch click on Pause button
@@ -194,4 +198,8 @@ $('button.pause').click(function() {
     clearTimeout(playMode);
     // stop loading bar
     clearTimeout(playBar);
+    // disable pause button
+    $(this).prop("disabled", true);
+    // enable play button
+    $('button.pause').prop("disabled", false);
 });
